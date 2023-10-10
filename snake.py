@@ -7,23 +7,19 @@ import os
 import sys
 pygame.init()
 pygame.mixer.init()
-base_dir = getattr(sys, '_MEIPASS', '')
-
-# Construct the image path
-image_path = os.path.join(base_dir, 'assets', '')
-
-crash_sound = pygame.mixer.Sound(os.path.join(image_path, "sounds/backgroundSound.wav"))
-die_sound = pygame.mixer.Sound(os.path.join(image_path, "sounds/die.wav"))
-food_sound = pygame.mixer.Sound(os.path.join(image_path, "sounds/food.wav"))
-click_sound = pygame.mixer.Sound(os.path.join(image_path, "sounds/new.wav"))
-welcome_sound = pygame.mixer.Sound(os.path.join(image_path, "sounds/welcome.wav"))
-bigBoss = pygame.mixer.Sound(os.path.join(image_path, "sounds/BogBossSound.wav"))
+#crash_sound = pygame.mixer.Sound("backgroundSound.wav")
+die_sound = pygame.mixer.Sound("die.wav")
+food_sound = pygame.mixer.Sound("food.wav")
+click_sound = pygame.mixer.Sound("new.wav")
+#welcome_sound = pygame.mixer.Sound("welcome.wav")
+bigBoss = pygame.mixer.Sound("BogBossSound.wav")
+base_dir = getattr(sys,'_MEIPASS','.')
+image_path = os.path.join(base_dir,'assets','')
 #welcome_sound.set_volume(1.0)
 #welcome_sound.play()
-crash_sound.set_volume(0.7)
+#crash_sound.set_volume(0.7)
 #pygame.time.wait(3000)
-
-crash_sound.play(-1)
+#crash_sound.play()
 click_sound.set_volume(10)
 x = 800
 y = 600
@@ -42,20 +38,20 @@ if os.path.exists(best_score_file):
     with open(best_score_file, "r") as file:
         best_score = int(file.read())
 
-background_image = pygame.image.load(os.path.join(image_path, "images/background.png"))
+background_image = pygame.image.load("background.png")
 background_image = pygame.transform.scale(background_image, (x, y))
 
-play_button = pygame.image.load(os.path.join(image_path, "images/play.png"))
+play_button = pygame.image.load("play.png")
 play_button = pygame.transform.scale(play_button, (100, 50))
-exit_button = pygame.image.load(os.path.join(image_path, "images/exit.png"))
+exit_button = pygame.image.load("exit.png")
 exit_button = pygame.transform.scale(exit_button, (100, 50))
-pause_button = pygame.image.load(os.path.join(image_path, "images/pause.png"))
+pause_button = pygame.image.load("pause.png")
 pause_button = pygame.transform.scale(pause_button, (50, 50))
-sound_button = pygame.image.load(os.path.join(image_path, "images/sound.png"))
+sound_button = pygame.image.load("sound.png")
 sound_button = pygame.transform.scale(sound_button, (50, 50))
-title_image = pygame.image.load(os.path.join(image_path, "images/title.png"))
-#full_screen_button = pygame.image.load("images/full.png")
-#full_screen_button = pygame.transform.scale(full_screen_button, (240, 200))
+title_image = pygame.image.load("title.png")
+full_screen_button = pygame.image.load("full.png")
+full_screen_button = pygame.transform.scale(full_screen_button, (240, 200))
 
 sound_playing = True
 
@@ -281,3 +277,4 @@ while run:
 
 # After the game loop exits, quit the game
 pygame.quit()
+
